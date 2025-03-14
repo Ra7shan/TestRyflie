@@ -12,50 +12,50 @@ class SecondWindow(QWidget):
 
         layout = QVBoxLayout()
 
-        # Название
-        self.title_label = QLabel('Введите данные для теста')
-        self.title_label.setAlignment(Qt.AlignRight)  # Выравнивание вправо
-        layout.addWidget(self.title_label)
-
         self.name_label = QLabel('Введите Ф.И.О.:')
         self.name_input = QLineEdit(self)
         layout.addWidget(self.name_label)
         layout.addWidget(self.name_input)
-
-        # Второе поле
-        self.start_second_test_button = QPushButton('Начать второй тест (15 секунд)')
-        self.start_second_test_button.clicked.connect(self.start_second_test)
-        layout.addWidget(self.start_second_test_button)
 
         self.age_label = QLabel('Полных лет:')
         self.age_input = QLineEdit(self)
         layout.addWidget(self.age_label)
         layout.addWidget(self.age_input)
         
+        # Поле для давления
+        self.pressure_label = QLabel('Лягте на спину и замерьте пульс за 15 секунд.')
+        self.pressure_label.setAlignment(Qt.AlignLeft)  # Выравнивание вправо
+        layout.addWidget(self.pressure_label)
+        
+        # Второе поле
+        self.start_second_test_button = QPushButton('Замерить первый тест (15 секунд)')
+        self.start_second_test_button.clicked.connect(self.start_second_test)
+        layout.addWidget(self.start_second_test_button)        
+        
+        self.pressure_input_first = QLineEdit(self)
+        layout.addWidget(self.pressure_input_first)        
+        
+        self.age_label = QLabel('Выполните 10 приседаний за 15 секунд.')
+        self.age_input = QLineEdit(self)
+        layout.addWidget(self.age_label)
+        layout.addWidget(self.age_input)
+        
         # Первое поле
-        self.first_test_button = QPushButton('Начать первый тест (15 секунд)')
+        self.first_test_button = QPushButton('Начать приседания (15 секунд)')
         self.first_test_button.clicked.connect(self.start_first_test)
         layout.addWidget(self.first_test_button)
         
-        # Поле для давления
         self.pressure_label = QLabel('Лягте на спину и замерьте давление за первые 15 секунд и за последние 15 секунд.')
         self.pressure_label.setAlignment(Qt.AlignRight)  # Выравнивание вправо
         layout.addWidget(self.pressure_label)
-
+        
+        self.pressure_input_first = QLineEdit(self)
+        layout.addWidget(self.pressure_input_first)        
+        
         self.first_pressure_button = QPushButton('Запустить таймер на 15 секунд')
         self.first_pressure_button.clicked.connect(self.start_pressure_timer)
-        layout.addWidget(self.first_pressure_button)
-
-        self.last_pressure_button = QPushButton('Запустить таймер на 15 секунд')
-        self.last_pressure_button.clicked.connect(self.start_pressure_timer)
-        layout.addWidget(self.last_pressure_button)
-
-        self.pressure_input_first = QLineEdit(self)
-        layout.addWidget(self.pressure_input_first)
-
-        self.pressure_input_second = QLineEdit(self)
-        layout.addWidget(self.pressure_input_second)
-
+        layout.addWidget(self.first_pressure_button)        
+        
         self.final_test_button = QPushButton('Начать финальный тест')
         self.final_test_button.clicked.connect(self.calculate_result)
         layout.addWidget(self.final_test_button)
